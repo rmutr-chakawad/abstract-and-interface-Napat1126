@@ -1,23 +1,17 @@
 public class TestDelivery {
     public static void main(String[] args) {
-        double weight = 10;
+        double weight = 10.0; // น้ำหนักสินค้า 10 กก.
 
-        Deliverable express = new ExpressDelivery("FastExpress");
-        Deliverable economy = new EconomyDelivery("SaveMore");
+        Deliverable express = new ExpressDelivery();
+        Deliverable economy = new EconomyDelivery();
 
-        System.out.println("Weight: " + weight + " kg");
-        System.out.println(express.getClass().getSimpleName() + " ("
-                + ((LogisticsService)express).getServiceType() + "): "
-                + express.calculateShippingCost(weight));
-        System.out.println(economy.getClass().getSimpleName() + " ("
-                + ((LogisticsService)economy).getServiceType() + "): "
-                + economy.calculateShippingCost(weight));
+        System.out.println("ทดสอบส่งสินค้าน้ำหนัก " + weight + " กก.");
+        System.out.println(express.getClass().getSimpleName()
+                + " (" + ((ExpressDelivery)express).getServiceType() + "): "
+                + express.calculateShippingCost(weight) + " บาท");
 
-        if (express.calculateShippingCost(weight) < economy.calculateShippingCost(weight)) {
-            System.out.println("Express is cheaper.");
-        } else {
-            System.out.println("Economy is cheaper.");
-        }
+        System.out.println(economy.getClass().getSimpleName()
+                + " (" + ((EconomyDelivery)economy).getServiceType() + "): "
+                + economy.calculateShippingCost(weight) + " บาท");
     }
 }
-

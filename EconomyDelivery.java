@@ -1,17 +1,16 @@
-class EconomyDelivery extends LogisticsService implements Deliverable {
+public class EconomyDelivery extends LogisticsService implements Deliverable {
 
-    EconomyDelivery(String serviceName) {
-        super(serviceName);
+    public EconomyDelivery() {
+        super("Economy Delivery");
+    }
+
+    @Override
+    public String getServiceType() {
+        return "ประหยัด";
     }
 
     @Override
     public double calculateShippingCost(double weight) {
         return 20 + (weight * 5);
     }
-
-    @Override
-    String getServiceType() {
-        return "Economy Delivery";
-    }
 }
-

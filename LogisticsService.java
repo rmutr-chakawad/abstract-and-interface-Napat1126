@@ -1,9 +1,13 @@
-abstract class LogisticsService {
-    String serviceName;
+public abstract class LogisticsService {
+    protected String serviceName;
 
-    LogisticsService(String serviceName) {
+    public LogisticsService(String serviceName) {
         this.serviceName = serviceName;
     }
 
-    abstract String getServiceType();
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public abstract String getServiceType();
 }
